@@ -1,0 +1,25 @@
+class Solution {
+public:
+int pivot(vector<int>& nums) {
+    int left = 0;
+    int right = nums.size() - 1;
+
+    while (left < right) {
+        int mid = left + (right - left) / 2;
+
+        if (nums[mid] > nums[right]) {
+            // Minimum is on the right side
+            left = mid + 1;
+        }
+        else {
+            // Minimum is at mid or on the left
+            right = mid;
+        }
+    }
+
+    return nums[left];   // index of pivot
+}
+    int findMin(vector<int>& nums) {
+          return pivot(nums);
+    }
+};
